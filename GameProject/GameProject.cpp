@@ -205,8 +205,26 @@ void ticTacToe() {
 
 int main()
 {
-    int choice;
-    cin >> choice;
-    if (choice == 1) ticTacToe();
-    else if (choice == 2) cardWar();
+    int plChoice;
+    cout << "\n      /////         /////   ///////////   /////       ///   ///       ///\n";
+    cout << "     /// ///     /// ///   ///           /// ///     ///   ///       ///\n";
+    cout << "    ///  ///   ///  ///   ///////////   ///   ///   ///   ///       ///\n";
+    cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
+    cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
+    cout << "                            Choose an option\n\n\n";
+    cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
+    cout << "                                (3) Quit\n";
+    while (true) {
+        cin >> plChoice;
+        if (plChoice == 1) ticTacToe();
+        else if (plChoice == 2) cardWar();
+        else if (plChoice == 3) return 0;
+        else {
+            cout << "Invalid choice ";
+            cin.get();
+            cin.ignore();
+        }
+        system("cls");
+        cout << "  Enter a new number (1-TicTacToe; 2-CardWar; 3-QUIT)\n";
+    }
 }
