@@ -46,17 +46,25 @@ void war() {
     cout << "WAR" << endl;
     cout << "Computer's cards are: ";
     for (int i = 1; i < 4; i++) {
-        cout << compCards[i] << " ";
+        cout << compCards[i] << " " << endl;
     }
     cout << endl;
     cout << "Player's cards are: ";
     for (int i = 1; i < 4; i++) {
-        cout << plCards[i] << " ";
+        cout << plCards[i] << " " << endl;
     }
     if (compCards[3] > plCards[3]) {
-        cout << "Computer Won";
+        cout << "Computer Won!" << endl;
         compCardCount += 4;
         plCardCount -= 4;
+    }
+    else if (compCards[3] < plCards[3]) {
+        cout << "Player Won!" << endl;
+        plCardCount += 4;
+        compCardCount -= 4;
+    }
+    else {
+        cout << "Draw!" << endl;
     }
 }
 
@@ -69,11 +77,6 @@ void cardWar() {
     shuffle(deck);
     show(deck);
 
-    cout << "  ///         ///        ///       ///         ///////////\n";
-    cout << "   ///      /////      ///      /// ///       ///       ///\n";
-    cout << "    ///   /// ///    ///      ///   ///      /// /// ///\n";
-    cout << "     //////     //////      /// /// ///     ///    ///\n";
-    cout << "      ///        ///      ///       ///    ///      ///\n\n";
 
 
     for (int i = 0; i < 52; i++) {
