@@ -1,5 +1,6 @@
 # Math-Game: Tic-Tac-Toe & War
 Кодът ни е написан на C++. 
+
 **The Dementors:**
 - Мириам Костадинова Георгиева 9г - MKGeorgieva19@codingburgas.bg
 - Мариета Петкова Стойчева 9г - MPStoycheva19@codingburgas.bg
