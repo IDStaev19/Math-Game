@@ -1,6 +1,6 @@
-# Math-Game: Tic-Tac-Toe
-**The Dementors:**
-- Мириам Георгиева 9г - MKGeorgieva19@codingburgas.bg
+# Math-Game: Tic-Tac-Toe & War
+**Нашият отбор The Dementors:**
+- Мириам Костадинова Георгиева 9г - MKGeorgieva19@codingburgas.bg
 - Мариета Петкова Стойчева 9г - MPStoycheva19@codingburgas.bg
 - Иван Дянков Стаев 9в – IDStaev19@codingburgas.bg
 - Мартин Валентинов Мартинов 9б – MVMartinov19@codingburgas.bg
