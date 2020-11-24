@@ -2,8 +2,8 @@
 Кодът ни е написан на C++. 
 
 **The Dementors:**
-- Мириам Костадинова Георгиева 9г - MKGeorgieva19@codingburgas.bg
-- Мариета Петкова Стойчева 9г - MPStoycheva19@codingburgas.bg
-- Иван Дянков Стаев 9в – IDStaev19@codingburgas.bg
-- Мартин Валентинов Мартинов 9б – MVMartinov19@codingburgas.bg
-- Теодора Николаева Компанска 9а – TNKompanska19@codingburgas.bg 
+- _Мириам Костадинова Георгиева 9г_ MKGeorgieva19@codingburgas.bg
+- _Мариета Петкова Стойчева 9г_ - MPStoycheva19@codingburgas.bg
+- _Иван Дянков Стаев 9в_ – IDStaev19@codingburgas.bg
+- _Мартин Валентинов Мартинов 9б_ – MVMartinov19@codingburgas.bg
+- _Теодора Николаева Компанска 9а_ – TNKompanska19@codingburgas.bg 
