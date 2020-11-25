@@ -10,7 +10,7 @@ int plCards[52];
 int compCardCount = 26;
 int plCardCount = 26;
 
-void shuffle(int arr[]) {
+void shuffleCards(int arr[]) {
     srand(time(NULL));
     int n;
     int temp;
@@ -22,7 +22,7 @@ void shuffle(int arr[]) {
     }
 }
 
-void show(int arr[]) {
+void cardApply(int arr[]) {
     for (int i = 0; i < 52; i++) {
         switch (arr[i]) {
         case 1: case 2: case 3: case 4: arr[i] = 2; break;
@@ -74,8 +74,8 @@ void cardWar() {
                 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
                 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52 };
 
-    shuffle(deck);
-    show(deck);
+    shuffleCards(deck);
+    cardApply(deck);
 
 
 
@@ -116,7 +116,7 @@ void cardWar() {
     compCardCount == 0 ? cout << "Player is the big winner" << endl : cout << "Computer is the big winner" << endl;
 }
 
-void board()
+void TicTacToeBoard()
 {
     system("cls");
 
@@ -140,7 +140,7 @@ void board()
     cout << "      |_____|_____|_____|" << "          the game is a tie." << endl << endl;
 }
 
-int checkWin()
+int checkTicTacToeWin()
 {
     if (square[1] == square[2] && square[2] == square[3]) return 1;
     else if (square[4] == square[5] && square[5] == square[6]) return 1;
@@ -163,7 +163,7 @@ void ticTacToe() {
 
     do
     {
-        board();
+        TicTacToeBoard();
 
         player = (player % 2) ? 1 : 2;
         cout << "  Player " << player << ": ";
@@ -191,13 +191,13 @@ void ticTacToe() {
             cin.ignore();
         }
 
-        returnValue = checkWin();
+        returnValue = checkTicTacToeWin();
 
         player++;
 
     } while (returnValue == -1);
 
-    board();
+    TicTacToeBoard();
 
     if (returnValue == 1) cout << "-->      Player " << --player << " win! ";
     else cout << "-->        Game draw";
