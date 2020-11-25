@@ -129,15 +129,15 @@ void board()
     cout << "  Player 1 (X) - Player 2 (O)" << endl;
 
     cout << "       _____ _____ _____" << endl;
-    cout << "      |     |     |     |" << endl;
+    cout << "      |     |     |     |" << "                                 RULES" << endl;
     cout << "      |  " << square[1] << "  |  " << square[2] << "  |  " << square[3] << "  |" << endl;
-    cout << "      |_____|_____|_____|" << endl;
+    cout << "      |_____|_____|_____|" << "       1. The game is played on a grid which is 3 squares by 3 squares." << endl;
     cout << "      |     |     |     |" << endl;
-    cout << "      |  " << square[4] << "  |  " << square[5] << "  |  " << square[6] << "  |" << endl;
-    cout << "      |_____|_____|_____|" << endl;
+    cout << "      |  " << square[4] << "  |  " << square[5] << "  |  " << square[6] << "  |" << "       2. The first player to get 3 of their marks in a row (up, down" << endl;
+    cout << "      |_____|_____|_____|" << "          across, or diagonally) is the winner." << endl;
     cout << "      |     |     |     |" << endl;
-    cout << "      |  " << square[7] << "  |  " << square[8] << "  |  " << square[9] << "  |" << endl;
-    cout << "      |_____|_____|_____|" << endl << endl;
+    cout << "      |  " << square[7] << "  |  " << square[8] << "  |  " << square[9] << "  |" << "       3. When all 9 squares are full (if the game hasn't finished)," << endl;
+    cout << "      |_____|_____|_____|" << "          the game is a tie." << endl << endl;
 }
 
 int checkWin()
@@ -151,8 +151,8 @@ int checkWin()
     else if (square[1] == square[5] && square[5] == square[9]) return 1;
     else if (square[3] == square[5] && square[5] == square[7]) return 1;
     else if (square[1] != '1' && square[2] != '2' && square[3] != '3'
-          && square[4] != '4' && square[5] != '5' && square[6] != '6'
-          && square[7] != '7' && square[8] != '8' && square[9] != '9')
+        && square[4] != '4' && square[5] != '5' && square[6] != '6'
+        && square[7] != '7' && square[8] != '8' && square[9] != '9')
         return 0;
     else return -1;
 }
@@ -228,6 +228,13 @@ int main()
             cin.ignore();
         }
         system("cls");
-        cout << "  Enter a new number (1-TicTacToe; 2-CardWar; 3-QUIT)\n";
+        cout << "\n      /////         /////   ///////////   /////       ///   ///       ///\n";
+        cout << "     /// ///     /// ///   ///           /// ///     ///   ///       ///\n";
+        cout << "    ///  ///   ///  ///   ///////////   ///   ///   ///   ///       ///\n";
+        cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
+        cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
+        cout << "                            Choose a new option\n\n\n";
+        cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
+        cout << "                              (3) Quit\n";
     }
 }
