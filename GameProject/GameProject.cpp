@@ -27,7 +27,7 @@ void cardApply(int card[])
 {
     for (int i = 0; i < 52; i++) 
     {
-        switch (card[i]) 
+        switch (card[i])
         {
         case 1: case 2: case 3: case 4: card[i] = 2; break;
         case 5: case 6: case 7: case 8: card[i] = 3; break;
@@ -92,53 +92,82 @@ void cardWar()
     shuffleCards(deck);
     cardApply(deck);
 
+    cout << "  ///         ///        ///       ///         ///////////\n";
+    cout << "   ///      /////      ///      /// ///       ///       ///\n";
+    cout << "    ///   /// ///    ///      ///   ///      /// /// ///\n";
+    cout << "     //////     //////      /// /// ///     ///    ///\n";
+    cout << "      ///        ///      ///       ///    ///      ///\n\n";
+
     for (int i = 0; i < 52; i++) 
     {
         i < 26 ? compCards[i] = deck[i] : plCards[i - 26] = deck[i];
     }
 
-    do 
+    for (int i = 0; i < 13; i++)
     {
-        cout << "The computer's card is: " << compCards[0] << endl;
-        cout << "The players's card is: " << plCards[0] << endl;
+        cout << "The computer's card is: ";
 
-        if (compCards[0] > plCards[0]) 
+        switch (compCards[0])
+        {
+        case 11: cout << 'J' << endl; break;
+        case 12: cout << 'Q' << endl; break;
+        case 13: cout << 'K' << endl; break;
+        case 14: cout << 'A' << endl; break;
+        default: cout << compCards[0] << endl;
+        }
+
+        cout << "The players's card is: ";
+
+        switch (plCards[0])
+        {
+        case 11: cout << 'J' << endl; break;
+        case 12: cout << 'Q' << endl; break;
+        case 13: cout << 'K' << endl; break;
+        case 14: cout << 'A' << endl; break;
+        default: cout << compCards[0] << endl;
+        }
+
+        if (compCards[0] > plCards[0])
         {
             cout << "The computer won!" << endl << endl;
+
+            compCards[compCardCount - 1] = plCards[0];
+            compCards[compCardCount] = compCards[0];
+
             compCardCount++;
             plCardCount--;
-            compCards[compCardCount - 1] = plCards[0];
-            compCards[compCardCount - 2] = compCards[0];
         }
-        else if (compCards[0] < plCards[0]) 
+        else if (compCards[0] < plCards[0])
         {
             cout << "The player won!" << endl << endl;
+
+            plCards[plCardCount - 1] = compCards[0];
+            plCards[plCardCount] = plCards[0];
+            
             plCardCount++;
             compCardCount--;
-            plCards[compCardCount - 1] = compCards[0];
-            plCards[plCardCount - 2] = plCards[0];
         }
-        else 
+        else
         {
             war();
         }
 
-        for (int i = 0; i < compCardCount - 3; i++) 
-        {
-            compCards[i] = compCards[i + 1];
-        }
-
-        for (int i = 0; i < plCardCount - 3; i++) 
-        {
-            plCards[i] = plCards[i + 1];
-        }
-
         cin.get();
         cin.ignore();
+    }
 
-    } while (compCardCount != 0 && plCardCount != 0);
-
-    compCardCount == 0 ? cout << "Player is the big winner" << endl : cout << "Computer is the big winner" << endl;
+    if (compCardCount > plCardCount)
+    {
+        cout << "THE COMPUTER IS THE BIG WINNER!" << endl;
+    }
+    else if (compCardCount < plCardCount)
+    {
+        cout << "YOU ARE THE BIG WINNER!" << endl;
+    }
+    else
+    {
+        cout << "The game is a tie" << endl;
+    }
 }
 
 char ticTacToeBoard[10] = { 'o','1','2','3','4','5','6','7','8','9' };
@@ -223,7 +252,7 @@ void ticTacToe()
     TicTacToeBoard();
 
     if (returnValue == 1) cout << "-->      Player " << --player << " win! ";
-    else cout << "-->        Game draw";
+    else cout << "-->           Tie";
 
     cin.ignore();
     cin.get();
@@ -242,14 +271,14 @@ int main()
     cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
     cout << "                                (3) Quit\n";
 
-    while (true) 
+    while (true)
     {
         cin >> plChoice;
 
         if (plChoice == 1) ticTacToe();
         else if (plChoice == 2) cardWar();
         else if (plChoice == 3) return 0;
-        else 
+        else
         {
             cout << "Invalid choice ";
             cin.get();
