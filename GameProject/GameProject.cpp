@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -48,8 +49,8 @@ void cardApply(int card[])
 
 void war()
 {
-	cout << "          WAR" << endl;
-	cout << "          Computer's cards are: ";
+	cout << setw(13)<<"WAR" << endl;
+	cout << setw(32)<<"Computer's cards are: ";
 
 	for (int i = 1; i < 4; i++)
 	{
@@ -57,7 +58,7 @@ void war()
 	}
 
 	cout << endl;
-	cout << "          Player's cards are: ";
+	cout << setw(30)<<"Player's cards are: ";
 
 	for (int i = 1; i < 4; i++)
 	{
@@ -68,19 +69,20 @@ void war()
 
 	if (compCards[3] > plCards[3])
 	{
-		cout << "          Computer Won!" << endl << endl;
+		cout <<setw(23)<<"Computer Won!" << endl << endl;
 		compCardCount += 4;
 		plCardCount -= 4;
+
 	}
 	else if (compCards[3] < plCards[3])
 	{
-		cout << "          Player Won!" << endl << endl;
+		cout << setw(21)<<"Player Won!" << endl << endl;
 		plCardCount += 4;
 		compCardCount -= 4;
 	}
 	else
 	{
-		cout << "          Draw!" << endl << endl;
+		cout <<setw(15)<<"Draw!" << endl << endl;
 		compCards[compCardCount - 1] = compCards[0];
 		plCards[plCardCount - 1] = plCards[0];
 	}
@@ -114,9 +116,17 @@ void cardWar()
 	{
 		warSign();
 
-		cout << "Round " << i + 1;
+		cout << setw(30) << "RULES\n\n\n";
+		cout << "1. At the start you and the computer have 26 cards.\n\n";
+		cout << "2. The game lasts 13 rounds.\n\n";
+		cout << "3. Every round you and the computer reveal your cards\n   and whoever's card is bigger takes both cards.\n\n";
+		cout << "4. In case of equal card, the game starts a war,\n   and you and the computer reveal your net three\n   cards and whoever's last card is bigger takes\n   it's 4 cards and the opponents 4 cards.\n\n";
+		cout << "5. In case last cards are also equal, no one\n   takes any cards and the game continues.\n   The final winner is the one with more cards.\n\n\n\n";
 
+		cout << setw(45) << "!!! You just have to press Enter !!!\n\n\n";
+		cout << "Round " << i + 1;
 		i < 9 ? cout << "   " : cout << "  ";
+		
 
 		cout << "The computer's card is: ";
 
@@ -129,7 +139,7 @@ void cardWar()
 		default: cout << compCards[0] << endl;
 		}
 
-		cout << "          The players's card is: ";
+		cout << setw(33)<<"The players's card is: ";
 
 		switch (plCards[0])
 		{
@@ -142,7 +152,7 @@ void cardWar()
 
 		if (compCards[0] > plCards[0])
 		{
-			cout << "          The computer won!" << endl << endl;
+			cout << setw(27)<<"The computer won!" << endl << endl;
 
 			compCards[compCardCount - 1] = compCards[0];
 			compCards[compCardCount] = plCards[0];
@@ -150,12 +160,20 @@ void cardWar()
 			compCardCount++;
 			plCardCount--;
 
-			cout << "          The computer has " << compCardCount << " cards" << endl;
-			cout << "          You have " << plCardCount << " cards" << endl << endl;
+			cout << setw(27)<<"The computer has " << compCardCount << " cards" << endl;
+			cout << setw(19) <<" You have " << plCardCount << " cards" << endl << endl;
+			if (i + 1 >= 2)
+			{
+				cout << "\n\nPress Enter 2 times to continue";
+			}
+			else
+			{
+				cout << "\n\nPress Enter to continue";
+			}
 		}
 		else if (compCards[0] < plCards[0])
 		{
-			cout << "          The player won!" << endl << endl;
+			cout << setw(25)<<"The player won!" << endl << endl;
 
 			plCards[plCardCount - 1] = compCards[0];
 			plCards[plCardCount] = plCards[0];
@@ -163,12 +181,28 @@ void cardWar()
 			compCardCount--;
 			plCardCount++;
 
-			cout << "          The computer has " << compCardCount << " cards" << endl;
-			cout << "          You have " << plCardCount << " cards" << endl << endl;
+			cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
+			cout << setw(19) << "You have " << plCardCount << " cards" << endl << endl;
+			if (i + 1 >= 2)
+			{
+				cout << "\n\nPress Enter 2 times to continue";
+			}
+			else
+			{
+				cout << "\n\nPress Enter to continue";
+			}
 		}
 		else
 		{
 			war();
+			if (i + 1 >= 2)
+			{
+				cout << "\n\nPress Enter 2 times to continue";
+			}
+			else
+			{
+				cout << "\n\nPress Enter to continue";
+			}
 		}
 
 		for (int i = 0; i < compCardCount - 1; i++)
@@ -188,16 +222,21 @@ void cardWar()
 
 	if (compCardCount > plCardCount)
 	{
-		cout << "          THE COMPUTER IS THE BIG WINNER!" << endl;
+		cout << setw(40)<<"THE COMPUTER IS THE BIG WINNER!\n\n";
+		cout << setw(34)<<"Press Enter 2 times to exit";
+
 	}
 	else if (compCardCount < plCardCount)
 	{
-		cout << "          YOU ARE THE BIG WINNER!" << endl;
+		cout << setw(30)<<"YOU ARE THE BIG WINNER!\n\n";
+		cout << setw(32) <<"Press Enter 2 times to exit";
 	}
 	else
 	{
-		cout << "          The game is a tie" << endl;
+		cout << setw(27)<<"The game is a tie\n\n";
+		cout << setw(35)<<"Press Enter 2 times to exit";
 	}
+
 
 	cin.get();
 	cin.ignore();
@@ -227,6 +266,8 @@ void TicTacToeDrawBoard()
     cout << "      |     |     |     |" << endl;
     cout << "      |  " << ticTacToeBoard[7] << "  |  " << ticTacToeBoard[8] << "  |  " << ticTacToeBoard[9] << "  |" << "       3. When all 9 squares are full (if the game hasn't finished)," << endl;
     cout << "      |_____|_____|_____|" << "          the game is a tie." << endl << endl;
+	cout << endl << endl;
+	cout << setw(95) << "!!! You have to enter the digit of the square in which you want to put 'X' or 'O' !!!\n\n";
 }
 
 int checkTicTacToeWin()
@@ -299,9 +340,9 @@ int mathGame() {
 	cout << "    ///  ///   ///  ///   ///////////   ///   ///   ///   ///       ///\n";
 	cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
 	cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
-	cout << "                            Choose an option\n\n\n";
-	cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
-	cout << "                                (3) Quit\n";
+	cout << setw(42)<<"Choose an option\n\n\n";
+	cout << setw(32) << "(1) Tic Tac Toe" << setw(22) << "(2) Card War\n\n";
+	cout << setw(41) << "(3) Quit\n";
 
 	while (true)
 	{
@@ -326,9 +367,9 @@ int mathGame() {
 		cout << "    ///  ///   ///  ///   ///////////   ///   ///   ///   ///       ///\n";
 		cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
 		cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
-		cout << "                            Choose a new option\n\n\n";
-		cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
-		cout << "                                (3) Quit\n";
+		cout << setw(45)<<"Choose a new option\n\n\n";
+		cout <<setw(32)<<"(1) Tic Tac Toe" << setw(22)<<"(2) Card War\n\n";
+		cout << setw(41)<<"(3) Quit\n";
 	}
 }
 
