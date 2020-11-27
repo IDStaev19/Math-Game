@@ -276,42 +276,46 @@ void ticTacToe()
     cin.get();
 }
 
+int mathGame() {
+	char plChoice;
+
+	cout << "\n      /////         /////   ///////////   /////       ///   ///       ///\n";
+	cout << "     /// ///     /// ///   ///           /// ///     ///   ///       ///\n";
+	cout << "    ///  ///   ///  ///   ///////////   ///   ///   ///   ///       ///\n";
+	cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
+	cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
+	cout << "                            Choose an option\n\n\n";
+	cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
+	cout << "                                (3) Quit\n";
+
+	while (true)
+	{
+		cin >> plChoice;
+
+		if (plChoice == '1') ticTacToe();
+		else if (plChoice == '2') cardWar();
+		else if (plChoice == '3') return 0;
+		else
+		{
+			cout << "Invalid choice ";
+			cin.get();
+			cin.ignore();
+		}
+
+		system("cls");
+
+		cout << "\n      /////         /////   ///////////   /////       ///   ///       ///\n";
+		cout << "     /// ///     /// ///   ///           /// ///     ///   ///       ///\n";
+		cout << "    ///  ///   ///  ///   ///////////   ///   ///   ///   ///       ///\n";
+		cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
+		cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
+		cout << "                            Choose a new option\n\n\n";
+		cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
+		cout << "                                (3) Quit\n";
+	}
+}
+
 int main()
 {
-    char plChoice;
-
-    cout << "\n      /////         /////   ///////////   /////       ///   ///       ///\n";
-    cout << "     /// ///     /// ///   ///           /// ///     ///   ///       ///\n";
-    cout << "    ///  ///   ///  ///   ///////////   ///   ///   ///   ///       ///\n";
-    cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
-    cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
-    cout << "                            Choose an option\n\n\n";
-    cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
-    cout << "                                (3) Quit\n";
-
-    while (true)
-    {
-        cin >> plChoice;
-
-        if (plChoice == '1') ticTacToe();
-        else if (plChoice == '2') cardWar();
-        else if (plChoice == '3') return 0;
-        else
-        {
-            cout << "Invalid choice ";
-            cin.get();
-            cin.ignore();
-        }
-
-        system("cls");
-
-        cout << "\n      /////         /////   ///////////   /////       ///   ///       ///\n";
-        cout << "     /// ///     /// ///   ///           /// ///     ///   ///       ///\n";
-        cout << "    ///  ///   ///  ///   ///////////   ///   ///   ///   ///       ///\n";
-        cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
-        cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
-        cout << "                            Choose a new option\n\n\n";
-        cout << "              (1) Tic Tac Toe" << "              (2) Card War\n";
-        cout << "                                (3) Quit\n";
-    }
+	mathGame();
 }
