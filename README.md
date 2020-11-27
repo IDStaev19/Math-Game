@@ -2,10 +2,11 @@
 Our code is written in C++. We decided to make Tic-Tac-Toe and Card War.
 
 ## Documents
-<a href="https://codingburgas-my.sharepoint.com/:w:/g/personal/mkgeorgieva19_codingburgas_bg/EXggKk35YeREiu38UtVrrkoBgI83sDNzdKTow-CPv73Jvg?e=3EEBEn">Documentation</a>
+<a href="#">Documentation</a>
 
 <a href="#">Presentation</a>
 
+## Our team
 **The Dementors:**
 1. _Miriam Kostadinova Georgieva_
 - Scrum Trainer
