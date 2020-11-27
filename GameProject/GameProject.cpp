@@ -48,8 +48,8 @@ void cardApply(int card[])
 
 void war()
 {
-	cout << "WAR" << endl;
-	cout << "Computer's cards are: ";
+	cout << "          WAR" << endl;
+	cout << "          Computer's cards are: ";
 
 	for (int i = 1; i < 4; i++)
 	{
@@ -57,31 +57,42 @@ void war()
 	}
 
 	cout << endl;
-	cout << "Player's cards are: ";
+	cout << "          Player's cards are: ";
 
 	for (int i = 1; i < 4; i++)
 	{
 		cout << plCards[i] << " ";
 	}
 
+	cout << endl;
+
 	if (compCards[3] > plCards[3])
 	{
-		cout << "Computer Won!" << endl;
+		cout << "          Computer Won!" << endl << endl;
 		compCardCount += 4;
 		plCardCount -= 4;
 	}
 	else if (compCards[3] < plCards[3])
 	{
-		cout << "Player Won!" << endl;
+		cout << "          Player Won!" << endl << endl;
 		plCardCount += 4;
 		compCardCount -= 4;
 	}
 	else
 	{
-		cout << "Draw!" << endl;
+		cout << "          Draw!" << endl << endl;
 		compCards[compCardCount - 1] = compCards[0];
 		plCards[plCardCount - 1] = plCards[0];
 	}
+}
+
+void warSign()
+{
+	cout << "\n  ///         ///        ///       ///         ///////////\n";
+	cout << "   ///      /////      ///      /// ///       ///       ///\n";
+	cout << "    ///   /// ///    ///      ///   ///      /// /// ///\n";
+	cout << "     //////     //////      /// /// ///     ///    ///\n";
+	cout << "      ///        ///      ///       ///    ///      ///\n\n\n";
 }
 
 void cardWar()
@@ -94,12 +105,6 @@ void cardWar()
 	shuffleCards(deck);
 	cardApply(deck);
 
-	cout << "  ///         ///        ///       ///         ///////////\n";
-	cout << "   ///      /////      ///      /// ///       ///       ///\n";
-	cout << "    ///   /// ///    ///      ///   ///      /// /// ///\n";
-	cout << "     //////     //////      /// /// ///     ///    ///\n";
-	cout << "      ///        ///      ///       ///    ///      ///\n\n\n";
-
 	for (int i = 0; i < 52; i++)
 	{
 		i < 26 ? compCards[i] = deck[i] : plCards[i - 26] = deck[i];
@@ -107,6 +112,11 @@ void cardWar()
 
 	for (int i = 0; i < 13; i++)
 	{
+		warSign();
+
+		cout << "Round " << i + 1;
+
+		i < 9 ? cout << "   " : cout << "  ";
 
 		cout << "The computer's card is: ";
 
@@ -119,7 +129,7 @@ void cardWar()
 		default: cout << compCards[0] << endl;
 		}
 
-		cout << "The players's card is: ";
+		cout << "          The players's card is: ";
 
 		switch (plCards[0])
 		{
@@ -132,7 +142,7 @@ void cardWar()
 
 		if (compCards[0] > plCards[0])
 		{
-			cout << "The computer won!" << endl << endl;
+			cout << "          The computer won!" << endl << endl;
 
 			compCards[compCardCount - 1] = compCards[0];
 			compCards[compCardCount] = plCards[0];
@@ -140,12 +150,12 @@ void cardWar()
 			compCardCount++;
 			plCardCount--;
 
-			cout << "The computer has " << compCardCount << " cards" << endl;
-			cout << "You have " << plCardCount << " cards" << endl;
+			cout << "          The computer has " << compCardCount << " cards" << endl;
+			cout << "          You have " << plCardCount << " cards" << endl << endl;
 		}
 		else if (compCards[0] < plCards[0])
 		{
-			cout << "The player won!" << endl << endl;
+			cout << "          The player won!" << endl << endl;
 
 			plCards[plCardCount - 1] = compCards[0];
 			plCards[plCardCount] = plCards[0];
@@ -153,8 +163,8 @@ void cardWar()
 			compCardCount--;
 			plCardCount++;
 
-			cout << "The computer has " << compCardCount << " cards" << endl;
-			cout << "You have " << plCardCount << " cards" << endl;
+			cout << "          The computer has " << compCardCount << " cards" << endl;
+			cout << "          You have " << plCardCount << " cards" << endl << endl;
 		}
 		else
 		{
@@ -172,25 +182,30 @@ void cardWar()
 
 		cin.get();
 		cin.ignore();
+
+		if (i < 12) system("cls");
 	}
 
 	if (compCardCount > plCardCount)
 	{
-		cout << "THE COMPUTER IS THE BIG WINNER!" << endl;
+		cout << "          THE COMPUTER IS THE BIG WINNER!" << endl;
 	}
 	else if (compCardCount < plCardCount)
 	{
-		cout << "YOU ARE THE BIG WINNER!" << endl;
+		cout << "          YOU ARE THE BIG WINNER!" << endl;
 	}
 	else
 	{
-		cout << "The game is a tie" << endl;
+		cout << "          The game is a tie" << endl;
 	}
+
+	cin.get();
+	cin.ignore();
 }
 
 char ticTacToeBoard[10] = { 'o','1','2','3','4','5','6','7','8','9' };
 
-void TicTacToeBoard()
+void TicTacToeDrawBoard()
 {
     system("cls");
 
@@ -237,7 +252,7 @@ void ticTacToe()
 
     do
     {
-        TicTacToeBoard();
+        TicTacToeDrawBoard();
 
         player = (player % 2) ? 1 : 2;
         cout << "  Player " << player << ": ";
@@ -267,7 +282,7 @@ void ticTacToe()
         player++;
     } while (returnValue == -1);
 
-    TicTacToeBoard();
+    TicTacToeDrawBoard();
 
     if (returnValue == 1) cout << "-->      Player " << --player << " win! ";
     else cout << "-->           Tie";
@@ -291,6 +306,8 @@ int mathGame() {
 	while (true)
 	{
 		cin >> plChoice;
+		
+		system("cls");
 
 		if (plChoice == '1') ticTacToe();
 		else if (plChoice == '2') cardWar();
