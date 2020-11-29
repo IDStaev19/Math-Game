@@ -75,19 +75,24 @@ void war()
         
         cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
         cout << setw(19) << " You have " << plCardCount << " cards" << endl << endl;
-
     }
     else if (compCards[3] < plCards[3])
     {
         cout << setw(21) << "Player Won!" << endl << endl;
         plCardCount += 4;
         compCardCount -= 4;
+
+        cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
+        cout << setw(19) << " You have " << plCardCount << " cards" << endl << endl;
     }
     else
     {
         cout << setw(15) << "Draw!" << endl << endl;
         compCards[compCardCount - 1] = compCards[0];
         plCards[plCardCount - 1] = plCards[0];
+
+        cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
+        cout << setw(19) << " You have " << plCardCount << " cards" << endl << endl;
     }
 }
 
@@ -257,9 +262,6 @@ void TicTacToeDrawBoard()
     cout << "    ///      ///  ///                 ///        ///   ///  ///                  ///    ///       ///  /////////\n";
     cout << "   ///      ///   ////               ///       /// /// ///  ////                ///      ///    ///   ///\n";
     cout << "  ///      ///      ///////         ///      ///       ///    ///////          ///        //////     /////////\n\n";
-
-    cout << "  Player 1 (X) - Player 2 (O)" << endl;
-
     cout << "       _____ _____ _____" << endl;
     cout << "      |     |     |     |" << "                                 RULES" << endl;
     cout << "      |  " << ticTacToeBoard[1] << "  |  " << ticTacToeBoard[2] << "  |  " << ticTacToeBoard[3] << "  |" << endl;
@@ -269,7 +271,7 @@ void TicTacToeDrawBoard()
     cout << "      |_____|_____|_____|" << "          across, or diagonally) is the winner." << endl;
     cout << "      |     |     |     |" << endl;
     cout << "      |  " << ticTacToeBoard[7] << "  |  " << ticTacToeBoard[8] << "  |  " << ticTacToeBoard[9] << "  |" << "       3. When all 9 squares are full (if the game hasn't finished)," << endl;
-    cout << "      |_____|_____|_____|" << "          the game is a tie." << endl << endl;
+    cout << "      |_____|_____|_____|" << "          the game is a tie." << endl << endl << endl;
 }
 
 int checkTicTacToeWin()
@@ -298,7 +300,7 @@ char computerChoice() {
     return compChoice;
 }
 
-void ticTacToe()
+void ticTacToeVsComp()
 {
     int player = 1, winValue;
     char playerMark, numberChoice;
@@ -369,6 +371,63 @@ void ticTacToe()
     cin.get();
 }
 
+void ticTacToeVsPl()
+{
+    int player = 1, winValue;
+    char playerMark, numberChoice;
+    do
+    {
+        TicTacToeDrawBoard();
+        player = (player % 2) ? 1 : 2;
+        cout << "  Player " << player << ": ";
+        cin >> numberChoice;
+        playerMark = (player == 1) ? 'X' : 'O';
+        if (numberChoice == '1' && ticTacToeBoard[1] == '1') ticTacToeBoard[1] = playerMark;
+        else if (numberChoice == '2' && ticTacToeBoard[2] == '2') ticTacToeBoard[2] = playerMark;
+        else if (numberChoice == '3' && ticTacToeBoard[3] == '3') ticTacToeBoard[3] = playerMark;
+        else if (numberChoice == '4' && ticTacToeBoard[4] == '4') ticTacToeBoard[4] = playerMark;
+        else if (numberChoice == '5' && ticTacToeBoard[5] == '5') ticTacToeBoard[5] = playerMark;
+        else if (numberChoice == '6' && ticTacToeBoard[6] == '6') ticTacToeBoard[6] = playerMark;
+        else if (numberChoice == '7' && ticTacToeBoard[7] == '7') ticTacToeBoard[7] = playerMark;
+        else if (numberChoice == '8' && ticTacToeBoard[8] == '8') ticTacToeBoard[8] = playerMark;
+        else if (numberChoice == '9' && ticTacToeBoard[9] == '9') ticTacToeBoard[9] = playerMark;
+        else
+        {
+            cout << "  Invalid move ";
+            player--;
+            cin.get();
+            cin.ignore();
+        }
+        winValue = checkTicTacToeWin();
+        player++;
+    } while (winValue == -1);
+
+    TicTacToeDrawBoard();
+
+    if (winValue == 1)
+    {
+        (player == 2) ? cout << "-->      You win!" : cout << "-->      Computer wins!";
+    }
+    else
+    {
+        cout << "-->           Tie";
+    }
+
+    cin.get();
+    cin.ignore();
+
+    ticTacToeBoard[0] = 'o';
+    ticTacToeBoard[1] = '1';
+    ticTacToeBoard[2] = '2';
+    ticTacToeBoard[3] = '3';
+    ticTacToeBoard[4] = '4';
+    ticTacToeBoard[5] = '5';
+    ticTacToeBoard[6] = '6';
+    ticTacToeBoard[7] = '7';
+    ticTacToeBoard[8] = '8';
+    ticTacToeBoard[9] = '9';
+}
+
 int mathGame() {
     char plChoice;
 
@@ -378,17 +437,18 @@ int mathGame() {
     cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
     cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
     cout << setw(47) << "Choose an option\n\n\n";
-    cout << setw(32) << "(1) Tic Tac Toe" << setw(22) << "(2) Card War\n\n";
-    cout << setw(41) << "(3) Quit\n";
+    cout << setw(34) << "(1) Tic Tac Toe (vs Computer)" << setw(38) << "(2) Tic Tac Toe(vs Other Player)\n\n";
+    cout << setw(34) << "(3) Card War" << setw(13) << "(4) Quit\n";
 
     while (true)
     {
         cin >> plChoice;
         system("cls");
 
-        if (plChoice == '1') ticTacToe();
-        else if (plChoice == '2') cardWar();
-        else if (plChoice == '3') return 0;
+        if (plChoice == '1') ticTacToeVsComp();
+        else if (plChoice == '2') ticTacToeVsPl();
+        else if (plChoice == '3') cardWar();
+        else if (plChoice == '4') return 0;
         else
         {
             cout << "Invalid choice ";
@@ -404,8 +464,8 @@ int mathGame() {
         cout << "   ///   /// ///   ///   ///           ///     /// ///   ///       ///\n";
         cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
         cout << setw(49) << "Choose a new option\n\n\n";
-        cout << setw(32) << "(1) Tic Tac Toe" << setw(22) << "(2) Card War\n\n";
-        cout << setw(41) << "(3) Quit\n";
+        cout << setw(34) << "(1) Tic Tac Toe (vs Computer)" << setw(38) << "(2) Tic Tac Toe(vs Other Player)\n\n";
+        cout << setw(34) << "(3) Card War" << setw(13) << "(4) Quit\n";
     }
 }
 
