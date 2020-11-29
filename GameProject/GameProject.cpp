@@ -129,11 +129,9 @@ void cardWar()
         cout << "3. Every round you and the computer reveal your cards\n   and whoever's card is bigger takes both cards.\n\n";
         cout << "4. In case of equal card, the game starts a war,\n   and you and the computer reveal your net three\n   cards and whoever's last card is bigger takes\n   it's 4 cards and the opponents 4 cards.\n\n";
         cout << "5. In case last cards are also equal, no one\n   takes any cards and the game continues.\n   The final winner is the one with more cards.\n\n\n";
-
         cout << setw(45) << "!!! You just have to press Enter !!!\n\n\n";
         cout << "Round " << i + 1;
         i < 9 ? cout << "   " : cout << "  ";
-
         cout << "The computer's card is: ";
 
         switch (compCards[0])
@@ -168,6 +166,7 @@ void cardWar()
 
             cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
             cout << setw(19) << " You have " << plCardCount << " cards" << endl << endl;
+
             if (i + 1 >= 2)
             {
                 cout << "\n\nPress Enter 2 times to continue";
@@ -189,6 +188,7 @@ void cardWar()
 
             cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
             cout << setw(19) << "You have " << plCardCount << " cards" << endl << endl;
+
             if (i + 1 >= 2)
             {
                 cout << "\n\nPress Enter 2 times to continue";
@@ -289,7 +289,8 @@ int checkTicTacToeWin()
     else return -1;
 }
 
-char computerChoice() {
+char computerChoice() 
+{
     srand(time(NULL));
 
     char possibleChoice[] = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
@@ -349,10 +350,7 @@ void ticTacToeVsComp()
 
     TicTacToeDrawBoard();
 
-    if (winValue == 1)
-    {
-        (player == 2) ? cout << "-->        You win!" : cout << "-->     Computer wins!";
-    }
+    if (winValue == 1) player == 2 ? cout << "-->        You win!" : cout << "-->     Computer wins!";
     else cout << "-->           Tie";
 
     ticTacToeBoard[0] = 'o';
@@ -374,13 +372,18 @@ void ticTacToeVsPl()
 {
     int player = 1, winValue;
     char playerMark, numberChoice;
+
     do
     {
         TicTacToeDrawBoard();
+
         player = (player % 2) ? 1 : 2;
+
         cout << "  Player " << player << ": ";
         cin >> numberChoice;
+
         playerMark = (player == 1) ? 'X' : 'O';
+
         if (numberChoice == '1' && ticTacToeBoard[1] == '1') ticTacToeBoard[1] = playerMark;
         else if (numberChoice == '2' && ticTacToeBoard[2] == '2') ticTacToeBoard[2] = playerMark;
         else if (numberChoice == '3' && ticTacToeBoard[3] == '3') ticTacToeBoard[3] = playerMark;
@@ -397,21 +400,16 @@ void ticTacToeVsPl()
             cin.get();
             cin.ignore();
         }
+
         winValue = checkTicTacToeWin();
         player++;
     } while (winValue == -1);
 
     TicTacToeDrawBoard();
 
-    if (winValue == 1)
-    {
-        (player == 2) ? cout << "-->        You win!" : cout << "-->     Computer wins!";
-    }
-    else
-    {
-        cout << "-->           Tie";
-    }
-
+    if (winValue == 1) player == 2 ? cout << "-->        You win!" : cout << "-->     Computer wins!";
+    else cout << "-->           Tie";
+   
     cin.get();
     cin.ignore();
 
@@ -427,7 +425,8 @@ void ticTacToeVsPl()
     ticTacToeBoard[9] = '9';
 }
 
-int mathGame() {
+int mathGame() 
+{
     char plChoice;
 
     cout << "\n      /////         /////   ///////////   /////       ///   ///       ///\n";
