@@ -72,7 +72,6 @@ void war()
         cout << setw(23) << "Computer Won!" << endl << endl;
         compCardCount += 4;
         plCardCount -= 4;
-
         cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
         cout << setw(19) << " You have " << plCardCount << " cards" << endl << endl;
     }
