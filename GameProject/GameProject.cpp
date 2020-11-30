@@ -10,7 +10,7 @@ int plCards[52];
 int compCardCount = 26;
 int plCardCount = 26;
 
-void shuffleCards(int arr[])
+void shuffleCards(int arr[])//Shuffle Cards Function
 {
     srand(time(0));
     int arrIndex;
@@ -47,7 +47,7 @@ void cardApply(int card[])
     }
 }
 
-void war()
+void war()//Card War checking how many cards does everyone have
 {
     cout << setw(13) << "WAR" << endl;
     cout << setw(32) << "Computer's cards are: ";
@@ -67,7 +67,7 @@ void war()
 
     cout << endl;
 
-    if (compCards[3] > plCards[3])
+    if (compCards[3] > plCards[3])//If computer cards are higher than player cards = Computer Won
     {
         cout << setw(23) << "Computer Won!" << endl << endl;
         compCardCount += 4;
@@ -75,7 +75,7 @@ void war()
         cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
         cout << setw(19) << " You have " << plCardCount << " cards" << endl << endl;
     }
-    else if (compCards[3] < plCards[3])
+    else if (compCards[3] < plCards[3])//If player cards are higher than computer cards = Player Won
     {
         cout << setw(21) << "Player Won!" << endl << endl;
         plCardCount += 4;
@@ -84,7 +84,7 @@ void war()
         cout << setw(27) << "The computer has " << compCardCount << " cards" << endl;
         cout << setw(19) << " You have " << plCardCount << " cards" << endl << endl;
     }
-    else
+    else//If computer cards are the same as player cards = Draw 
     {
         cout << setw(15) << "Draw!" << endl << endl;
         compCards[compCardCount - 1] = compCards[0];
@@ -95,7 +95,7 @@ void war()
     }
 }
 
-void warSign()
+void warSign()//Card War game title
 {
     cout << "\n  ///         ///        ///       ///         ///////////\n";
     cout << "   ///      /////      ///      /// ///       ///       ///\n";
@@ -104,7 +104,7 @@ void warSign()
     cout << "      ///        ///      ///       ///    ///      ///\n\n\n";
 }
 
-void cardWar()
+void cardWar()//Main Function of the Card War game
 {
     int deck[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
     14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
@@ -154,7 +154,7 @@ void cardWar()
         default: cout << plCards[0] << endl;
         }
 
-        if (compCards[0] > plCards[0])
+        if (compCards[0] > plCards[0])//If computer card is higher than player card = Computer won the round
         {
             cout << setw(27) << "The computer won!" << endl << endl;
 
@@ -176,7 +176,7 @@ void cardWar()
                 cout << "\n\nPress Enter to continue";
             }
         }
-        else if (compCards[0] < plCards[0])
+        else if (compCards[0] < plCards[0])//If player card is higher than computer card = Player won the round
         {
             cout << setw(25) << "The player won!" << endl << endl;
 
@@ -226,18 +226,18 @@ void cardWar()
         if (i < 12) system("cls");
     }
 
-    if (compCardCount > plCardCount)
+    if (compCardCount > plCardCount)//If computer cards are higher than player cards = Computer Won the game
     {
         cout << setw(40) << "THE COMPUTER IS THE BIG WINNER!\n\n";
         cout << setw(34) << "Press Enter 2 times to exit";
 
     }
-    else if (compCardCount < plCardCount)
+    else if (compCardCount < plCardCount)//If player cards are higher than computer cards = Player Won the game
     {
         cout << setw(30) << "YOU ARE THE BIG WINNER!\n\n";
         cout << setw(32) << "Press Enter 2 times to exit";
     }
-    else
+    else//If computer cards are the same as player cards = Draw 
     {
         cout << setw(27) << "The game is a tie\n\n";
         cout << setw(35) << "Press Enter 2 times to exit";
@@ -252,7 +252,7 @@ void cardWar()
 
 char ticTacToeBoard[10] = { 'o','1','2','3','4','5','6','7','8','9' };
 
-void TicTacToeDrawBoard()
+void TicTacToeDrawBoard()//Main function of TicTacToe Game
 {
     system("cls");
 
@@ -289,7 +289,7 @@ int checkTicTacToeWin()
     else return -1;
 }
 
-char computerChoice() 
+char computerChoice()//Generate random number from 1 to 9
 {
     srand(time(NULL));
 
@@ -300,7 +300,7 @@ char computerChoice()
     return compChoice;
 }
 
-void ticTacToeVsComp()
+void ticTacToeVsComp()//Function of TicTacToe /Player vs Computer/
 {
     int player = 1, winValue;
     char playerMark, numberChoice;
@@ -378,7 +378,7 @@ void ticTacToeVsComp()
     cin.get();
 }
 
-void ticTacToeVsPl()
+void ticTacToeVsPl()//Function of TicTacToe /Player vs Player/
 {
     int player = 1, winValue;
     char playerMark, numberChoice;
@@ -435,7 +435,7 @@ void ticTacToeVsPl()
     ticTacToeBoard[9] = '9';
 }
 
-int mathGame() 
+int mathGame()//Main Menu where you can select the games
 {
     char plChoice;
 
