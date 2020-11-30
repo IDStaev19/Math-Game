@@ -318,10 +318,20 @@ void ticTacToeVsComp()
         }
         else if (player == 2)
         {
-            do
-            {
-                numberChoice = computerChoice();
-            } while (ticTacToeBoard[(int)numberChoice] == numberChoice);
+			while (true)
+			{
+				numberChoice = computerChoice();
+
+				if (numberChoice == '1' && ticTacToeBoard[1] == '1') break;
+				else if (numberChoice == '2' && ticTacToeBoard[2] == '2') break;
+				else if (numberChoice == '3' && ticTacToeBoard[3] == '3') break;
+				else if (numberChoice == '4' && ticTacToeBoard[4] == '4') break;
+				else if (numberChoice == '5' && ticTacToeBoard[5] == '5') break;
+				else if (numberChoice == '6' && ticTacToeBoard[6] == '6') break;
+				else if (numberChoice == '7' && ticTacToeBoard[7] == '7') break;
+				else if (numberChoice == '8' && ticTacToeBoard[8] == '8') break;
+				else if (numberChoice == '9' && ticTacToeBoard[9] == '9') break;
+			}
         }
 
         playerMark = (player == 1) ? 'X' : 'O';
@@ -337,7 +347,7 @@ void ticTacToeVsComp()
         else if (numberChoice == '9' && ticTacToeBoard[9] == '9') ticTacToeBoard[9] = playerMark;
         else
         {
-            cout << "  Invalid move ";
+			cout << "  Invalid move. Press Enter and enter a new number: ";
             player--;
 
             cin.get();
@@ -395,7 +405,7 @@ void ticTacToeVsPl()
         else if (numberChoice == '9' && ticTacToeBoard[9] == '9') ticTacToeBoard[9] = playerMark;
         else
         {
-            cout << "  Invalid move ";
+			cout << "  Invalid move. Press Enter and enter a new number: ";
             player--;
             cin.get();
             cin.ignore();
@@ -407,7 +417,7 @@ void ticTacToeVsPl()
 
     TicTacToeDrawBoard();
 
-    if (winValue == 1) player == 2 ? cout << "-->        You win!" : cout << "-->     Computer wins!";
+    if (winValue == 1) player == 2 ? cout << "-->        Player 1 win!" : cout << "-->     Player 2 wins!";
     else cout << "-->           Tie";
    
     cin.get();
@@ -436,7 +446,7 @@ int mathGame()
     cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
     cout << setw(47) << "Choose an option\n\n\n";
     cout << setw(34) << "(1) Tic Tac Toe (vs Computer)" << setw(38) << "(2) Tic Tac Toe (vs Other Player)\n\n";
-    cout << setw(34) << "(3) Card War" << setw(13) << "(4) Quit\n";
+    cout << setw(34) << "(3) Card War" << setw(12) << "(4) Quit\n";
 
     while (true)
     {
@@ -449,7 +459,7 @@ int mathGame()
         else if (plChoice == '4') return 0;
         else
         {
-            cout << "Invalid choice ";
+			cout << "  Invalid move. Press Enter ";
             cin.get();
             cin.ignore();
         }
@@ -463,7 +473,7 @@ int mathGame()
         cout << "  ///    ////     ///   ///////////   ///       /////   /////////////\n\n";
         cout << setw(49) << "Choose a new option\n\n\n";
         cout << setw(34) << "(1) Tic Tac Toe (vs Computer)" << setw(38) << "(2) Tic Tac Toe (vs Other Player)\n\n";
-        cout << setw(34) << "(3) Card War" << setw(13) << "(4) Quit\n";
+        cout << setw(34) << "(3) Card War" << setw(12) << "(4) Quit\n";
     }
 }
 
