@@ -409,6 +409,7 @@ void ticTacToeVsPl() //Function of TicTacToe /Player vs Player/
         else
         {
             cout << "  Invalid move. Press Enter and enter a new number: ";   //In case of wrong input
+
             player--;
             cin.get();
             cin.ignore();
@@ -421,7 +422,7 @@ void ticTacToeVsPl() //Function of TicTacToe /Player vs Player/
     TicTacToeDrawBoard();
 
     if (winValue == 1) 
-        player == 2 ? cout << "-->        Player 1 win!" : cout << "-->     Player 2 wins!";    //Display the winner
+        player == 2 ? cout << "-->      Player 1 win!" : cout << "-->     Player 2 wins!";    //Display the winner
     else 
         cout << "-->           Tie";
    
