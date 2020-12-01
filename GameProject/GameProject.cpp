@@ -318,10 +318,11 @@ void ticTacToeVsComp()
         }
         else if (player == 2)
         {
-            do
+            while (true)
             {
                 numberChoice = computerChoice();
-            } while (ticTacToeBoard[(int)numberChoice] == numberChoice);
+                if (ticTacToeBoard[numberChoice] == numberChoice) break;
+            }
         }
 
         playerMark = (player == 1) ? 'X' : 'O';
