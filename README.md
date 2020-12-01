@@ -4,7 +4,7 @@ Our code is written in C++. We decided to make Tic-Tac-Toe and Card War.
 ## Documents
 <a href="https://codingburgas-my.sharepoint.com/:w:/g/personal/mkgeorgieva19_codingburgas_bg/EctSW5rkA65Gt5WMz-v0ZvUBmsDTsX36Sa2d39cy_eoyNg?e=pYuXae">Documentation</a>
 
-<a href="#">Presentation</a>
+<a href="https://codingburgas-my.sharepoint.com/:p:/g/personal/mvmartinov19_codingburgas_bg/EVs0oPW2XaNGn-ep9ObCLJgBDY_eMZFCQstuI47IoB9XoA?e=VDFkQT">Presentation</a>
 
 ## Our team
 **The Dementors:**
