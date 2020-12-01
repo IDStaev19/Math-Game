@@ -314,7 +314,7 @@ void ticTacToeVsComp() //Function of TicTacToe /Player vs Computer/
 
         if (player == 1)
         {
-            cout << "  Enter a number: ";
+            cout << setw(18)<<"Enter a number: ";
             cin >> numberChoice;
         }
         else if (player == 2)
@@ -348,7 +348,7 @@ void ticTacToeVsComp() //Function of TicTacToe /Player vs Computer/
         else if (numberChoice == '9' && ticTacToeBoard[9] == '9') ticTacToeBoard[9] = playerMark;
         else
         {
-            cout << "  Invalid move. Press Enter and enter a new number: ";
+            cout << setw(52)<< "Invalid move. Press Enter and enter a new number: ";
             player--;
 
             cin.get();    //Pause the console
@@ -362,9 +362,9 @@ void ticTacToeVsComp() //Function of TicTacToe /Player vs Computer/
     TicTacToeDrawBoard();
 
     if (winValue == 1) 
-        player == 2 ? cout << "-->        You win!" : cout << "-->     Computer wins!";    //Display the winner
+        player == 2 ? cout << "-->"<<setw(16)<<"You win!" : cout << "-->"<<setw(9)<<"Computer wins!";    //Display the winner
     else 
-        cout << "-->           Tie";
+        cout << "-->"<<setw(14)<<"Tie";
 
     ticTacToeBoard[0] = 'o';
     ticTacToeBoard[1] = '1';
@@ -408,7 +408,7 @@ void ticTacToeVsPl() //Function of TicTacToe /Player vs Player/
         else if (numberChoice == '9' && ticTacToeBoard[9] == '9') ticTacToeBoard[9] = playerMark;
         else
         {
-            cout << "  Invalid move. Press Enter and enter a new number: ";   //In case of wrong input
+            cout <<setw(52)<<"Invalid move. Press Enter and enter a new number: ";   //In case of wrong input
 
             player--;
             cin.get();
@@ -422,7 +422,7 @@ void ticTacToeVsPl() //Function of TicTacToe /Player vs Player/
     TicTacToeDrawBoard();
 
     if (winValue == 1) 
-        player == 2 ? cout << "-->      Player 1 win!" : cout << "-->     Player 2 wins!";    //Display the winner
+        player == 2 ? cout << "-->"<<setw(20)<< "Player 1 wins!" : cout << "-->"<<setw(19)<<"Player 2 wins!";    //Display the winner
     else 
         cout << "-->           Tie";
    
@@ -468,7 +468,7 @@ int mathGame() //Main Menu where you can select the games
         else if (plChoice == '4') return 0;
         else
         {
-            cout << "  Invalid move. Press Enter ";
+            cout <<setw(28)<< "Invalid move. Press Enter ";
 
             cin.get();     //Pause the console
             cin.ignore();
